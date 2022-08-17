@@ -5,14 +5,16 @@
         <a class="navbar-brand" href="#">
           <img src="@/assets/logo.png" alt="" width="28" height="28" />
         </a>
-        <h3 class="title">VueBank</h3>
+        <h3 class="bold">VueBank</h3>
       </div>
 
       <ul class="d-flex">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/operations">Operations</router-link></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Sign out</a></li>
+        <li class="bold"><router-link to="/">Home</router-link></li>
+        <li class="bold">
+          <router-link to="/operations">Operations</router-link>
+        </li>
+        <li class="bold"><a href="#">Messages</a></li>
+        <li class="bold"><a href="#">Sign out</a></li>
       </ul>
     </nav>
   </header>
@@ -27,10 +29,6 @@ li:not(:last-child) {
   margin-right: 10px;
 }
 
-.title,
-li {
-  font-weight: 700;
-}
 .card {
   margin-bottom: 25px;
 }
