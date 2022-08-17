@@ -1,22 +1,23 @@
 <template>
   <div class="container">
-    <header class="card">
-      <TheNavbar />
-    </header>
-    <div class="card center">
-      <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </nav>
-      <router-view />
-    </div>
+    <component :is="`${layout}-layout`" />
   </div>
 </template>
 
 <script>
-import TheNavbar from "./components/TheNavbar";
+import { computed } from "vue";
+import AuthLayout from "./layout/AuthLayout";
+import MainLayout from "./layout/MainLayout";
+import { useRoute } from "vue-router";
 export default {
-  components: { TheNavbar },
+  components: { MainLayout, AuthLayout },
+
+  setup() {
+    const route = useRoute();
+    return {
+      layout: computed(() => route.meta.layout),
+    };
+  },
 };
 </script>
 
@@ -28,9 +29,8 @@ export default {
 }
 
 .card {
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 15px;
-  margin-bottom: 15px;
   border-radius: 10px;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
   background-color: rgb(231, 222, 222);

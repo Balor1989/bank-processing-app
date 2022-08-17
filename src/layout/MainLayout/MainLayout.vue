@@ -1,4 +1,5 @@
 <template>
+  <TheNavbar />
   <div class="container">
     <div class="card">
       <h2>Main Layout</h2>
@@ -7,7 +8,8 @@
 </template>
 
 <script>
-export default {};
+import TheNavbar from "@/components/TheNavbar";
+export default { components: { TheNavbar } };
 </script>
 
 <style></style>
