@@ -11,5 +11,6 @@ export default {};
 <style scoped>
 .container {
   padding-top: 200px;
+  max-width: 800px;
 }
 </style>
