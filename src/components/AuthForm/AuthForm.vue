@@ -52,7 +52,6 @@ export default {
       name: inject("name"),
       secondaryButton: inject("secondary"),
       path: inject("path"),
-      onSubmit: inject("submit"),
       ...useAuthForm(),
     };
   },

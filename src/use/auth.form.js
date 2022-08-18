@@ -1,4 +1,4 @@
-import { computed, watch } from "vue";
+import { computed, inject, watch } from "vue";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "vuex";
@@ -9,6 +9,7 @@ export function useAuthForm() {
   const store = useStore();
   const router = useRouter();
   const route = useRoute();
+  const name = inject("name");
 
   if (route.query.message) {
     Notify.warning("Please sign in", { timeout: 3000 });
@@ -50,7 +51,9 @@ export function useAuthForm() {
       e;
     }
   });
-
+  const onSubmit = handleSubmit(() => {
+    name.value === "Sign In" ? onSubmitSignIn() : onSubmitSignUp();
+  });
   return {
     email,
     emailError,
@@ -60,5 +63,6 @@ export function useAuthForm() {
     isSubmitting,
     isToManyAttempts,
     onSubmitSignUp,
+    onSubmit,
   };
 }
