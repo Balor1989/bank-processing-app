@@ -1,4 +1,3 @@
-import HomePage from "@/views/HomePage";
 import { createRouter, createWebHistory } from "vue-router";
 import store from "../store";
 
@@ -6,7 +5,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: HomePage,
+    component: () => import(/* webpackChunkName: "help" */ "../views/HomePage"),
     meta: {
       layout: "main",
       auth: true,
@@ -25,6 +24,15 @@ const routes = [
     path: "/auth",
     name: "Auth",
     component: () => import(/* webpackChunkName: "auth" */ "../views/AuthPage"),
+    meta: {
+      layout: "auth",
+    },
+  },
+  {
+    path: "/reg",
+    name: "Reg",
+    component: () =>
+      import(/* webpackChunkName: "reg" */ "../views/SignUpPage"),
     meta: {
       layout: "auth",
     },

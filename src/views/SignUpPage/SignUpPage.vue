@@ -10,9 +10,9 @@ export default {
   components: { AuthForm },
 
   setup() {
-    const titleAndButtonName = ref("Sign In");
-    const secondaryButton = ref("Sign Up");
-    const path = ref("/reg");
+    const titleAndButtonName = ref("Sign Up");
+    const secondaryButton = ref("Sign In");
+    const path = ref("/auth");
 
     provide("name", titleAndButtonName);
     provide("secondary", secondaryButton);
