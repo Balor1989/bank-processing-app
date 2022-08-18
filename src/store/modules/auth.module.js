@@ -20,11 +20,14 @@ export default {
     },
   },
   actions: {
-    async login(_, payload) {
+    async login({ commit }, payload) {
       try {
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_KEY}`;
-        const { data } = await axios.post(url, payload);
-        console.log(data);
+        const { data } = await axios.post(url, {
+          ...payload,
+          returnSecureToken: true,
+        });
+        commit("setToken", data.idToken);
       } catch (error) {
         Notify.failure(errorMessage(error.response.data.error.message));
       }
