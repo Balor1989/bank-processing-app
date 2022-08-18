@@ -5,7 +5,7 @@ import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { Notify } from "notiflix";
 
-export function useLoginForm() {
+export function useAuthForm() {
   const store = useStore();
   const router = useRouter();
   const route = useRoute();
@@ -42,6 +42,14 @@ export function useLoginForm() {
       e;
     }
   });
+  const onSubmitSignUp = handleSubmit(async (values) => {
+    try {
+      await store.dispatch("auth/register", values);
+      router.push("/");
+    } catch (e) {
+      e;
+    }
+  });
 
   return {
     email,
@@ -51,5 +59,6 @@ export function useLoginForm() {
     onSubmitSignIn,
     isSubmitting,
     isToManyAttempts,
+    onSubmitSignUp,
   };
 }

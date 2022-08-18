@@ -1,6 +1,4 @@
-import axios from "axios";
-import { Notify } from "notiflix";
-import { errorMessage } from "@/utils/error";
+import { useFetch } from "@/use/fetch";
 
 const TOKEN_KEY = "jwt-token";
 
@@ -20,20 +18,13 @@ export default {
     },
   },
   actions: {
-    async login({ commit }, payload) {
-      try {
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_KEY}`;
-        const { data } = await axios.post(url, {
-          ...payload,
-          returnSecureToken: true,
-        });
-        commit("setToken", data.idToken);
-      } catch (error) {
-        Notify.failure(errorMessage(error.response.data.error.message), {
-          timeout: 3000,
-        });
-        throw new Error();
-      }
+    login({ commit }, payload) {
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_KEY}`;
+      useFetch(url, payload, commit);
+    },
+    register({ commit }, payload) {
+      const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VUE_APP_KEY}`;
+      useFetch(url, payload, commit);
     },
   },
   mutations: {

@@ -1,5 +1,5 @@
 <template>
-  <form class="card" @submit.prevent="onSubmitSignIn">
+  <form class="card" @submit.prevent="onSubmit">
     <h1 class="title bold">{{ name }}</h1>
     <div class="mb-3">
       <label for="email">Email:</label>
@@ -44,15 +44,16 @@
 </template>
 
 <script>
-import { useLoginForm } from "@/use/login.form";
+import { useAuthForm } from "@/use/auth.form";
 import { inject } from "@vue/runtime-core";
 export default {
   setup() {
     return {
-      ...useLoginForm(),
       name: inject("name"),
       secondaryButton: inject("secondary"),
       path: inject("path"),
+      onSubmit: inject("submit"),
+      ...useAuthForm(),
     };
   },
 };
