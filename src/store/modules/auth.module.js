@@ -30,6 +30,7 @@ export default {
         commit("setToken", data.idToken);
       } catch (error) {
         Notify.failure(errorMessage(error.response.data.error.message));
+        throw new Error();
       }
     },
   },
