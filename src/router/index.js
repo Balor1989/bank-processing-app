@@ -1,5 +1,6 @@
 import HomePage from "@/views/HomePage";
 import { createRouter, createWebHistory } from "vue-router";
+import store from "../store";
 
 const routes = [
   {
@@ -8,6 +9,7 @@ const routes = [
     component: HomePage,
     meta: {
       layout: "main",
+      auth: true,
     },
   },
   {
@@ -16,6 +18,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "help" */ "../views/HelpPage"),
     meta: {
       layout: "main",
+      auth: true,
     },
   },
   {
@@ -31,6 +34,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, _, next) => {
+  const requireAuth = to.meta.auth;
+  if (requireAuth && store.getters["auth/isAuth"]) {
+    next();
+  } else if (requireAuth && !store.getters["auth/isAuth"]) {
+    next("/auth?message=auth");
+  } else {
+    next();
+  }
 });
 
 export default router;
