@@ -29,7 +29,9 @@ export default {
         });
         commit("setToken", data.idToken);
       } catch (error) {
-        Notify.failure(errorMessage(error.response.data.error.message));
+        Notify.failure(errorMessage(error.response.data.error.message), {
+          timeout: 3000,
+        });
         throw new Error();
       }
     },

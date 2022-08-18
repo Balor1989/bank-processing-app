@@ -2,11 +2,17 @@ import { computed, watch } from "vue";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { Notify } from "notiflix";
 
 export function useLoginForm() {
   const store = useStore();
   const router = useRouter();
+  const route = useRoute();
+
+  if (route.query.message) {
+    Notify.warning("Please sign in", { timeout: 3000 });
+  }
 
   const { handleSubmit, isSubmitting, submitCount } = useForm();
 
