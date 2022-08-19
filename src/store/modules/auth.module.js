@@ -18,13 +18,13 @@ export default {
     },
   },
   actions: {
-    login({ commit }, payload) {
+    async login({ commit }, payload) {
       const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_KEY}`;
-      useFetch(url, payload, commit);
+      await useFetch(url, payload, commit);
     },
-    register({ commit }, payload) {
+    async register({ commit }, payload) {
       const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VUE_APP_KEY}`;
-      useFetch(url, payload, commit);
+      await useFetch(url, payload, commit);
     },
   },
   mutations: {

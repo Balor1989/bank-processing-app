@@ -2,18 +2,13 @@ import { computed, inject, watch } from "vue";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "vuex";
-import { useRoute, useRouter } from "vue-router";
-import { Notify } from "notiflix";
+import { useRouter } from "vue-router";
 
 export function useAuthForm() {
   const store = useStore();
   const router = useRouter();
-  const route = useRoute();
-  const name = inject("name");
 
-  if (route.query.message) {
-    Notify.warning("Please sign in", { timeout: 3000 });
-  }
+  const name = inject("name");
 
   const { handleSubmit, isSubmitting, submitCount } = useForm();
 
