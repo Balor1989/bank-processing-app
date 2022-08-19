@@ -13,9 +13,7 @@
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item bold">
-          <router-link to="/operations" class="nav-link"
-            >Operations</router-link
-          >
+          <router-link to="/help" class="nav-link">Help</router-link>
         </li>
         <li class="nav-item bold"><a href="#" class="nav-link">Messages</a></li>
         <li class="nav-item bold">

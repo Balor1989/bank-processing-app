@@ -50,13 +50,21 @@ export default {
   place-content: center;
   place-items: center;
   width: fit-content;
-  border-radius: 99px;
+  border-radius: 10px;
   letter-spacing: 1px;
   text-decoration: none;
   margin-right: 10px;
-  padding: 8px 20px;
+  padding: 4px 20px;
   font-weight: 700;
   outline: none;
   transition: all 300ms ease;
+}
+.btn-success {
+  background-color: rgb(6, 136, 6);
+}
+.error-message {
+  display: block;
+  margin-top: 5px;
+  color: var(--bs-danger);
 }
 </style>

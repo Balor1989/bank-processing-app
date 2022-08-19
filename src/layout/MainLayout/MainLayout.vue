@@ -1,9 +1,7 @@
 <template>
   <TheNavbar />
   <div class="container">
-    <div class="card">
-      <h2>Main Layout</h2>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
