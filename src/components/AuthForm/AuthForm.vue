@@ -74,4 +74,7 @@ label {
   margin-top: 5px;
   color: var(--bs-danger);
 }
+.btn-success {
+  background-color: rgb(6, 136, 6);
+}
 </style>

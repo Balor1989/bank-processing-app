@@ -8,13 +8,19 @@
         </a>
       </div>
 
-      <ul class="d-flex">
-        <li class="bold"><router-link to="/">Home</router-link></li>
-        <li class="bold">
-          <router-link to="/operations">Operations</router-link>
+      <ul class="nav nav-pills">
+        <li class="nav-item bold">
+          <router-link to="/" class="nav-link">Home</router-link>
         </li>
-        <li class="bold"><a href="#">Messages</a></li>
-        <li class="bold"><a href="#" @click.prevent="onLogout">Sign out</a></li>
+        <li class="nav-item bold">
+          <router-link to="/operations" class="nav-link"
+            >Operations</router-link
+          >
+        </li>
+        <li class="nav-item bold"><a href="#" class="nav-link">Messages</a></li>
+        <li class="nav-item bold">
+          <a href="#" @click.prevent="onLogout" class="nav-link">Sign out</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -45,5 +51,20 @@ li:not(:last-child) {
 
 .card {
   margin-bottom: 25px;
+}
+
+.nav-pills .nav-item .nav-link {
+  color: rgb(8, 8, 8);
+}
+.nav-pills .nav-item .nav-link.active {
+  background-color: rgb(6, 136, 6);
+  color: rgb(231, 222, 222);
+  transition: color 300ms, background-color 300ms;
+}
+
+.nav-pills .nav-item .nav-link:hover,
+.nav-pills .nav-item .nav-link:focus {
+  background-color: rgb(6, 136, 6);
+  color: rgb(231, 222, 222);
 }
 </style>
