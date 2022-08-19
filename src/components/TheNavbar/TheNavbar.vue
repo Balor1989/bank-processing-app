@@ -1,11 +1,11 @@
 <template>
   <header class="card">
     <nav class="navbar">
-      <div class="d-flex align-items-center">
-        <a class="navbar-brand" href="#">
+      <div>
+        <a class="navbar-brand d-flex align-items-center" href="#">
           <img src="@/assets/logo.png" alt="" width="28" height="28" />
+          <h3 class="bold">ueBank</h3>
         </a>
-        <h3 class="bold">VueBank</h3>
       </div>
 
       <ul class="d-flex">
