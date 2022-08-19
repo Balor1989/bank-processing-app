@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h1 class="bold d-flex justify-content-between">
+    <h1 class="bold d-flex justify-content-between main-title">
       {{ title }} <slot name="header" />
     </h1>
     <slot />
@@ -22,4 +22,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.main-title {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(187, 186, 186);
+}
+</style>

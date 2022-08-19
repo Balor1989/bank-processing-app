@@ -3,14 +3,20 @@
     <template #header>
       <button class="btn btn-success">Add</button>
     </template>
+    <OperationsTable :request="[]" />
   </AppPage>
 </template>
 
 <script>
 import AppPage from "@/components/AppPage";
+import OperationsTable from "../../components/OperationsTable";
 export default {
-  components: { AppPage },
+  components: { AppPage, OperationsTable },
 };
 </script>
 
-<style></style>
+<style scoped>
+.btn {
+  font-size: 20px;
+}
+</style>

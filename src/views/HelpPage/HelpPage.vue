@@ -1,9 +1,12 @@
 <template>
-  <div></div>
+  <AppModal />
 </template>
 
 <script>
-export default {};
+import AppModal from "../../components/AppModal";
+export default {
+  components: { AppModal },
+};
 </script>
 
 <style></style>
