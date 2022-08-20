@@ -17,7 +17,9 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">...</div>
+        <div class="modal-body">
+          <ModalBody />
+        </div>
         <div class="modal-footer">
           <button
             type="button"
@@ -34,12 +36,14 @@
 </template>
 
 <script>
+import ModalBody from "../ModalBody";
 export default {
   props: {
     title: {
       type: String,
     },
   },
+  components: { ModalBody },
 };
 </script>
 

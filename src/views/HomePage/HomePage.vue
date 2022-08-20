@@ -20,7 +20,7 @@
 import AppPage from "@/components/AppPage";
 import OperationsTable from "../../components/OperationsTable";
 import { ref } from "vue";
-import AppModal from "@/components/AppModal/AppModal.vue";
+import AppModal from "@/components/AppModal";
 export default {
   components: { AppPage, OperationsTable, AppModal },
 
