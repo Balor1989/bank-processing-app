@@ -9,6 +9,11 @@ export default {
       requests: [],
     };
   },
+  getters: {
+    requests(state) {
+      return state.requests;
+    },
+  },
   mutations: {
     setRequests(state, requests) {
       state.requests = requests;

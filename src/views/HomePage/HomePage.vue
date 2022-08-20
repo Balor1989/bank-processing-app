@@ -9,7 +9,7 @@
         Add
       </button>
     </template>
-    <OperationsTable :request="[]" />
+    <OperationsTable :request="requests" />
     <teleport to="#modal">
       <AppModal title="Create operation" />
     </teleport>
@@ -20,11 +20,15 @@
 import AppPage from "@/components/AppPage";
 import OperationsTable from "../../components/OperationsTable";
 import AppModal from "@/components/AppModal";
+import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
 export default {
   components: { AppPage, OperationsTable, AppModal },
 
   setup() {
-    return {};
+    const store = useStore();
+    const requests = computed(() => store.getters["request/requests"]);
+    return { requests };
   },
 };
 </script>
