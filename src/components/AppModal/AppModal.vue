@@ -40,7 +40,6 @@
 <script>
 import ModalBody from "../ModalBody";
 export default {
-  emits: ["submit"],
   props: {
     title: {
       type: String,
