@@ -1,3 +1,4 @@
+import store from "@/store";
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 
@@ -21,8 +22,12 @@ export function useRequestForm() {
   const { value: status, errorMessage: statusError } = useField("status");
 
   const onSubmit = handleSubmit(async (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+    try {
+      await store.dispatch("request/create", values);
+      resetForm();
+    } catch (e) {
+      e;
+    }
   });
 
   return {
