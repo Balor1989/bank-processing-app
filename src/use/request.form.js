@@ -2,7 +2,9 @@ import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 
 export function useRequestForm() {
-  const { isSubmitting, handleSubmit } = useForm();
+  const { isSubmitting, handleSubmit } = useForm({
+    initialValues: { status: "active" },
+  });
 
   const { value: name, errorMessage: nameError } = useField(
     "name",
@@ -18,8 +20,9 @@ export function useRequestForm() {
   );
   const { value: status, errorMessage: statusError } = useField("status");
 
-  const onSubmit = handleSubmit(async () => {
-    console.log("submit");
+  const onSubmit = handleSubmit(async (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
   });
 
   return {

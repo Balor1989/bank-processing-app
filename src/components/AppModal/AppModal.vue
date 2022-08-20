@@ -30,7 +30,9 @@
           >
             Close
           </button>
-          <button type="submit" class="btn btn-success">Save changes</button>
+          <button type="submit" class="btn btn-success" form="modalForm">
+            Submit
+          </button>
         </div>
       </div>
     </div>
@@ -46,6 +48,9 @@ export default {
     },
   },
   components: { ModalBody },
+  setup() {
+    return {};
+  },
 };
 </script>
 

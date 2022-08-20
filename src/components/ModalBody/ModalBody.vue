@@ -1,5 +1,5 @@
 <template>
-  <form class="card" @submit.prevent="onSubmit">
+  <form class="card" @submit.prevent="onSubmit" id="modalForm">
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
       <input
@@ -47,15 +47,12 @@
       </select>
       <span v-if="statusError" class="error-message">{{ statusError }}</span>
     </div>
-
-    <button type="submit" :disabled="isSubmitting" class="btn btn-success">
-      Submit
-    </button>
   </form>
 </template>
 
 <script>
 import { useRequestForm } from "@/use/request.form";
+
 export default {
   setup() {
     return {
