@@ -1,24 +1,15 @@
 <template>
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-  >
-    Launch demo modal
-  </button>
-
   <div
     class="modal fade"
-    id="exampleModal"
+    id="homeModal"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="modalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="modalLabel">Modal title</h5>
           <button
             type="button"
             class="btn-close"
@@ -43,7 +34,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: {
+      type: String,
+    },
+  },
+};
 </script>
 
-<style></style>
+<style>
+.modal-content {
+  background-color: rgb(231, 222, 222);
+}
+</style>
