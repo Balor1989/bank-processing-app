@@ -3,13 +3,15 @@
     class="modal fade"
     id="homeModal"
     tabindex="-1"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
     aria-labelledby="modalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">{{ title }}</h5>
+          <h5 class="modal-title medium" id="modalLabel">{{ title }}</h5>
           <button
             type="button"
             class="btn-close"
@@ -28,7 +30,7 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-success">Save changes</button>
+          <button type="submit" class="btn btn-success">Save changes</button>
         </div>
       </div>
     </div>
@@ -38,6 +40,7 @@
 <script>
 import ModalBody from "../ModalBody";
 export default {
+  emits: ["submit"],
   props: {
     title: {
       type: String,

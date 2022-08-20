@@ -11,7 +11,7 @@
     </template>
     <OperationsTable :request="[]" />
     <teleport to="#modal">
-      <AppModal title="Operation" />
+      <AppModal title="Create operation" />
     </teleport>
   </AppPage>
 </template>

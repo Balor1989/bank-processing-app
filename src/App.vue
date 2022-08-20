@@ -27,6 +27,9 @@ export default {
 .bold {
   font-weight: 700;
 }
+.medium {
+  font-weight: 500;
+}
 
 .container {
   padding: 40px 0;
