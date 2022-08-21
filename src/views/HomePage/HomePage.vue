@@ -1,5 +1,6 @@
 <template>
-  <AppPage title="Operations list">
+  <AppLoader v-if="loading" />
+  <AppPage v-else title="Operations list">
     <template #header>
       <button
         class="btn btn-success"
@@ -9,7 +10,7 @@
         Add
       </button>
     </template>
-    <OperationsTable :request="requests" />
+    <OperationsTable :requests="requests" />
     <teleport to="#modal">
       <AppModal title="Create operation" />
     </teleport>
@@ -20,15 +21,23 @@
 import AppPage from "@/components/AppPage";
 import OperationsTable from "../../components/OperationsTable";
 import AppModal from "@/components/AppModal";
-import { computed } from "@vue/runtime-core";
+import { computed, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
+import AppLoader from "../../components/AppLoader";
 export default {
-  components: { AppPage, OperationsTable, AppModal },
+  components: { AppPage, OperationsTable, AppModal, AppLoader },
 
   setup() {
     const store = useStore();
     const requests = computed(() => store.getters["request/requests"]);
-    return { requests };
+    const loading = ref(true);
+
+    // onMounted(async () => {
+    //   loading.value = true;
+    //   await store.dispatch("request/load");
+    //   loading.value = false;
+    // });
+    return { requests, loading };
   },
 };
 </script>
