@@ -56,8 +56,7 @@ export default {
   border-radius: 10px;
   letter-spacing: 1px;
   text-decoration: none;
-  margin-right: 10px;
-  padding: 4px 20px;
+  padding: 8px 20px;
   font-weight: 700;
   outline: none;
   transition: all 300ms ease;

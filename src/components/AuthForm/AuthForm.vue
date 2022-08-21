@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style scoped>
+.btn:first-child {
+  margin-right: 10px;
+}
 label {
   font-size: 18px;
 }

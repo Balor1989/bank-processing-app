@@ -2,15 +2,15 @@
   <h3 class="center medium" v-if="requests.length === 0">
     There are no operations
   </h3>
-  <table v-else>
+  <table v-else class="table table-striped">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Amount</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -21,11 +21,8 @@
         <td>{{ req.amount }}</td>
         <td>{{ req.status }}</td>
         <td>
-          <router-link
-            v-slot="{ navigate }"
-            custom
-            :to="{ name: 'Request', params: { id: req.id } }"
-            ><button class="btn" @click="navigate">Open</button>
+          <router-link v-slot="{ navigate }" to="/"
+            ><button class="btn btn-secondary" @click="navigate">Open</button>
           </router-link>
         </td>
       </tr>
@@ -39,4 +36,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.btn {
+  padding: 0 8px;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 8px 15px;
+}
+</style>
