@@ -21,7 +21,7 @@
 import AppPage from "@/components/AppPage";
 import OperationsTable from "../../components/OperationsTable";
 import AppModal from "@/components/AppModal";
-import { computed, ref } from "@vue/runtime-core";
+import { computed, onMounted, ref } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import AppLoader from "../../components/AppLoader";
 export default {
@@ -32,11 +32,11 @@ export default {
     const requests = computed(() => store.getters["request/requests"]);
     const loading = ref(true);
 
-    // onMounted(async () => {
-    //   loading.value = true;
-    //   await store.dispatch("request/load");
-    //   loading.value = false;
-    // });
+    onMounted(async () => {
+      loading.value = true;
+      await store.dispatch("request/load");
+      loading.value = false;
+    });
     return { requests, loading };
   },
 };

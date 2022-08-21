@@ -43,19 +43,19 @@ export default {
           };
       }
     },
-  },
-  async load() {
-    try {
-      const token = store.getters["auth/token"];
-      const { data } = await axios.get(`/requests.json?auth=${token}`);
+    async load() {
+      try {
+        const token = store.getters["auth/token"];
+        const { data } = await axios.get(`/requests.json?auth=${token}`);
 
-      console.log(data);
-      // commit("setRequests", { id: data.name });
-    } catch (e) {
-      Notify.failure(e.message),
-        {
-          timeout: 3000,
-        };
-    }
+        console.log(data);
+        // commit("setRequests", { id: data.name });
+      } catch (e) {
+        Notify.failure(e.message),
+          {
+            timeout: 3000,
+          };
+      }
+    },
   },
 };
