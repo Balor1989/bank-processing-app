@@ -21,7 +21,10 @@
         <td>{{ amountFormat(req.amount) }}</td>
         <td><AppStatus :type="req.status" /></td>
         <td>
-          <router-link v-slot="{ navigate }" to="/"
+          <router-link
+            v-slot="{ navigate }"
+            custom
+            :to="{ name: 'Request', params: { id: req.id } }"
             ><button class="btn btn-primary" @click="navigate">Open</button>
           </router-link>
         </td>

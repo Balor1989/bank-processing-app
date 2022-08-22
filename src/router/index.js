@@ -5,7 +5,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => import(/* webpackChunkName: "help" */ "../views/HomePage"),
+    component: () => import(/* webpackChunkName: "home" */ "../views/HomePage"),
     meta: {
       layout: "main",
       auth: true,
@@ -15,6 +15,16 @@ const routes = [
     path: "/help",
     name: "Help",
     component: () => import(/* webpackChunkName: "help" */ "../views/HelpPage"),
+    meta: {
+      layout: "main",
+      auth: true,
+    },
+  },
+  {
+    path: "/request/:id",
+    name: "Request",
+    component: () =>
+      import(/* webpackChunkName: "request" */ "../views/RequestPage"),
     meta: {
       layout: "main",
       auth: true,

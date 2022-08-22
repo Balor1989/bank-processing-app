@@ -1,8 +1,10 @@
 <template>
   <div class="card">
-    <h1 class="bold d-flex justify-content-between main-title">
+    <h2
+      class="bold d-flex justify-content-between align-items-center main-title"
+    >
       {{ title }} <slot name="header" />
-    </h1>
+    </h2>
     <slot />
   </div>
 </template>
