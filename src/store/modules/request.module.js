@@ -56,5 +56,17 @@ export default {
           };
       }
     },
+    async loadById(_, id) {
+      try {
+        const token = store.getters["auth/token"];
+        const { data } = await axios.get(`/requests/${id}.json?auth=${token}`);
+        return data;
+      } catch (e) {
+        Notify.failure(e.message),
+          {
+            timeout: 3000,
+          };
+      }
+    },
   },
 };
