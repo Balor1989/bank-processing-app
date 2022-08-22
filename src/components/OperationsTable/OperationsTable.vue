@@ -18,11 +18,11 @@
         <td>{{ idx + 1 }}</td>
         <td>{{ req.name }}</td>
         <td>{{ req.phone }}</td>
-        <td>{{ req.amount }}</td>
+        <td>{{ amountFormat(req.amount) }}</td>
         <td>{{ req.status }}</td>
         <td>
           <router-link v-slot="{ navigate }" to="/"
-            ><button class="btn btn-secondary" @click="navigate">Open</button>
+            ><button class="btn btn-primary" @click="navigate">Open</button>
           </router-link>
         </td>
       </tr>
@@ -31,8 +31,12 @@
 </template>
 
 <script>
+import { amountFormat } from "@/utils/amountFormat";
 export default {
   props: ["requests"],
+  setup() {
+    return { amountFormat };
+  },
 };
 </script>
 
