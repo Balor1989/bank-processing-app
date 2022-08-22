@@ -41,7 +41,8 @@ export default {
 <style>
 .badge {
   font-size: 14px;
-  border: 1px solid #eee;
+  border: 1px solid rgb(150, 148, 148);
+  color: rgb(150, 148, 148);
   border-radius: 15px;
   padding: 4px 10px;
 }
@@ -57,7 +58,7 @@ export default {
 }
 
 .badge.warning {
-  border-color: #c25205;
-  color: #c25205;
+  border-color: #88208b;
+  color: #88208b;
 }
 </style>
