@@ -25,10 +25,10 @@
     <div class="mb-3">
       <label for="amount" class="form-label">Amount</label>
       <input
-        type="number"
+        type="text"
         :class="['form-control', { 'is-invalid': amountError }]"
         id="amount"
-        v-model.number="amount"
+        v-model="amount"
       />
       <span v-if="amountError" class="error-message">{{ amountError }}</span>
     </div>

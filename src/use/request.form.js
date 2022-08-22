@@ -3,7 +3,7 @@ import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 
 export function useRequestForm() {
-  const { isSubmitting, handleSubmit } = useForm({
+  const { handleSubmit } = useForm({
     initialValues: { status: "active" },
   });
 
@@ -13,11 +13,15 @@ export function useRequestForm() {
   );
   const { value: phone, errorMessage: phoneError } = useField(
     "phone",
-    yup.string().trim().required()
+    yup.string().trim().required().min(10)
   );
   const { value: amount, errorMessage: amountError } = useField(
     "amount",
-    yup.number().required().min(0, "The amount can't be less than zero")
+    yup
+      .number()
+      .round("floor")
+      .required()
+      .min(0, "The amount can't be less than zero")
   );
   const { value: status, errorMessage: statusError } = useField("status");
 
@@ -40,6 +44,5 @@ export function useRequestForm() {
     status,
     statusError,
     onSubmit,
-    isSubmitting,
   };
 }

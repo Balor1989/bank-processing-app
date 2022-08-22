@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  width: 100vw;
   margin: 0;
   font-family: "Roboto" Oxygen, Fira Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
