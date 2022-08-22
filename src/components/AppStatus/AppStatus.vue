@@ -1,0 +1,63 @@
+<template>
+  <span :class="['badge', className]">{{ text }}</span>
+</template>
+
+<script>
+import { ref } from "vue";
+export default {
+  props: {
+    type: {
+      type: String,
+      required: true,
+      validator(value) {
+        return ["active", "cancelled", "done", "pending"].includes(value);
+      },
+    },
+  },
+  setup(props) {
+    const classMap = {
+      active: "primary",
+      cancelled: "danger",
+      done: "secondary",
+      pending: "warning",
+    };
+    const textMap = {
+      active: "Active",
+      cancelled: "Cancelled",
+      done: "Done",
+      pending: "Pending",
+    };
+    const className = ref(classMap[props.type]);
+    const text = ref(textMap[props.type]);
+
+    return {
+      className,
+      text,
+    };
+  },
+};
+</script>
+
+<style>
+.badge {
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 4px 10px;
+}
+
+.badge.primary {
+  border-color: #3eaf7c;
+  color: #3eaf7c;
+}
+
+.badge.danger {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+.badge.warning {
+  border-color: #c25205;
+  color: #c25205;
+}
+</style>

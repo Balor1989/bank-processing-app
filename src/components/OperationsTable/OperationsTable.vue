@@ -19,7 +19,7 @@
         <td>{{ req.name }}</td>
         <td>{{ req.phone }}</td>
         <td>{{ amountFormat(req.amount) }}</td>
-        <td>{{ req.status }}</td>
+        <td><AppStatus :type="req.status" /></td>
         <td>
           <router-link v-slot="{ navigate }" to="/"
             ><button class="btn btn-primary" @click="navigate">Open</button>
@@ -32,11 +32,13 @@
 
 <script>
 import { amountFormat } from "@/utils/amountFormat";
+import AppStatus from "../AppStatus";
 export default {
   props: ["requests"],
   setup() {
     return { amountFormat };
   },
+  components: { AppStatus },
 };
 </script>
 
