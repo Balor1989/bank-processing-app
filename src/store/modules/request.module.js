@@ -1,3 +1,4 @@
+import { errorMessage } from "@/utils/error";
 import { Notify } from "notiflix";
 import axios from "../../axios/request";
 import store from "../../store";
@@ -50,7 +51,7 @@ export default {
         const requests = Object.keys(data).map((id) => ({ ...data[id], id }));
         commit("setRequests", requests);
       } catch (e) {
-        Notify.failure(e.message),
+        Notify.failure(errorMessage(e.code || e)),
           {
             timeout: 3000,
           };

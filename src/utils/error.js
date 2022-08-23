@@ -3,6 +3,7 @@ const ERROR_CODES = {
   INVALID_PASSWORD: "Invalid password",
   EMAIL_EXISTS:
     "User with such email is already exists. Please go to the sign in page",
+  ERR_BAD_REQUEST: "Please, sign in",
 };
 
 export function errorMessage(code) {
