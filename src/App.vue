@@ -42,6 +42,11 @@ export default {
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
   background-color: rgb(231, 222, 222);
 }
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .container {
+    max-width: 98%;
+  }
+}
 .center {
   display: flex;
   flex-direction: column;
