@@ -4,6 +4,7 @@ const ERROR_CODES = {
   EMAIL_EXISTS:
     "User with such email is already exists. Please go to the sign in page",
   ERR_BAD_REQUEST: "Please, sign in",
+  ERR_NETWORK: "Bad network connection. Please, try again",
 };
 
 export function errorMessage(code) {

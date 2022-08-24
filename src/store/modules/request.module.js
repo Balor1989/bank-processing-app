@@ -69,5 +69,29 @@ export default {
           };
       }
     },
+    async remove(_, id) {
+      try {
+        const token = store.getters["auth/token"];
+        await axios.delete(`/requests/${id}.json?auth=${token}`);
+        Notify.success("Operation successfully deleted");
+      } catch (e) {
+        Notify.failure(e.message),
+          {
+            timeout: 3000,
+          };
+      }
+    },
+    async update(_, request) {
+      try {
+        const token = store.getters["auth/token"];
+        await axios.put(`/requests/${request.id}.json?auth=${token}`, request);
+        Notify.success("Operation successfully updated");
+      } catch (e) {
+        Notify.failure(e.message),
+          {
+            timeout: 3000,
+          };
+      }
+    },
   },
 };

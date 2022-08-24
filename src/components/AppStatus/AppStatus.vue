@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 export default {
   props: {
     type: {
@@ -27,6 +27,12 @@ export default {
       done: "Done",
       pending: "Pending",
     };
+
+    watch(props, (value) => {
+      className.value = classMap[value.type];
+      text.value = textMap[value.type];
+    });
+
     const className = ref(classMap[props.type]);
     const text = ref(textMap[props.type]);
 
