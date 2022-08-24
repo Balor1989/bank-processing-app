@@ -16,7 +16,7 @@
           <router-link to="/help" class="nav-link">FAQ</router-link>
         </li>
         <li class="nav-item medium">
-          <a href="#" class="nav-link">Messages</a>
+          <a href="#" class="nav-link" @click.prevent="openSidebar">Messages</a>
         </li>
         <li class="nav-item medium">
           <a href="#" @click.prevent="onLogout" class="nav-link">Sign out</a>
@@ -37,8 +37,10 @@ export default {
       store.commit("auth/logout");
       router.push("/auth");
     };
+
     return {
       onLogout,
+      openSidebar: () => store.commit("openSidebar"),
     };
   },
 };
