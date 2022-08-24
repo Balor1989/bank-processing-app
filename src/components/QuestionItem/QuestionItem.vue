@@ -28,4 +28,7 @@ export default {
   cursor: pointer;
   background-color: #eee;
 }
+.question-title {
+  margin-bottom: 5px;
+}
 </style>

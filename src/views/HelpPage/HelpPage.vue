@@ -18,7 +18,7 @@ export default {
       {
         id: 1,
         title: "What is in this system?",
-        text: "ТThere is a viewing and processing of user operations",
+        text: "There is a viewing and processing of user operations",
       },
       {
         id: 2,
