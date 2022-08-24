@@ -1,24 +1,31 @@
 <template>
   <AppLoader v-if="loading" />
   <AppPage back v-else-if="request" title="Operation">
-    <p><span>Name: </span>{{ request.name }}</p>
-    <p><span>Phone: </span>{{ request.phone }}</p>
-    <p><span>Amount: </span>{{ amountFormat(request.amount) }}</p>
-    <p><span>Status: </span><AppStatus :type="request.status" /></p>
+    <div>
+      <p class="info"><span>Name: </span>{{ request.name }}</p>
+      <p class="info"><span>Phone: </span>{{ request.phone }}</p>
+      <p class="info">
+        <span>Amount: </span>{{ amountFormat(request.amount) }}
+      </p>
+      <p class="info">
+        <span>Status: </span><AppStatus :type="request.status" />
+      </p>
+    </div>
 
     <div class="mb-3">
-      <select v-model="status">
+      <select v-model="status" class="form-select">
         <option value="done">Done</option>
         <option value="cancelled">Cancelled</option>
         <option value="active">Active</option>
         <option value="pending">Pending</option>
       </select>
     </div>
-
-    <button class="btn btn-danger" @click="remove">Delete</button>
-    <button v-if="isChanged" class="btn btn-primary" @click="update">
-      Update
-    </button>
+    <div class="d-flex">
+      <button class="btn btn-danger" @click="remove">Delete</button>
+      <button v-if="isChanged" class="btn btn-primary" @click="update">
+        Update
+      </button>
+    </div>
   </AppPage>
   <div v-else class="card center">
     <h3 class="medium">Operation was not found</h3>
@@ -81,4 +88,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.form-select {
+  max-width: 50%;
+  margin-top: 10px;
+}
+.info {
+  margin-bottom: 10px;
+}
+.btn-danger {
+  margin-right: 20px;
+}
+</style>

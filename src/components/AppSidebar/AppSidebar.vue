@@ -30,7 +30,7 @@ export default {
   right: 0;
   top: 0;
   bottom: 0;
-  background: #ccc;
+  background-color: rgb(209, 206, 206);
   z-index: 100;
   padding: 10px 10px 10px 30px;
   transform: translateX(100%);
