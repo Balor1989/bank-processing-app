@@ -24,11 +24,13 @@
         passwordError
       }}</span>
     </div>
-    <div>
+    <div class="d-flex align-items-center">
+      <AuthLoader v-if="isLoading" />
       <button
+        v-else
         class="btn btn-success"
         type="submit"
-        :disabled="isSubmitting || isToManyAttempts"
+        :disabled="isToManyAttempts"
       >
         {{ name }}
       </button>
@@ -46,7 +48,9 @@
 <script>
 import { useAuthForm } from "@/use/auth.form";
 import { inject } from "@vue/runtime-core";
+import AuthLoader from "../AuthLoader";
 export default {
+  components: { AuthLoader },
   setup() {
     return {
       name: inject("name"),
@@ -59,8 +63,8 @@ export default {
 </script>
 
 <style scoped>
-.btn:first-child {
-  margin-right: 10px;
+.btn:last-child {
+  margin-left: 10px;
 }
 label {
   font-size: 18px;
